@@ -85,4 +85,4 @@ echo(figures.tick & " done")
 | fiveSixths         | ⅚                            | 5/6     |
 | fiveEighths        | ⅝                            | 5/8     |
 | sevenEighths       | ⅞                            | 7/8     |
-| (array) spinner    | ⠋, ⠙, ⠹, ⠸, ⠼, ⠴, ⠦, ⠧, ⠇, ⠏ |  -, \, I, / |
+| (array) spinner    | ⠋, ⠙, ⠹, ⠸, ⠼, ⠴, ⠦, ⠧, ⠇, ⠏ |  -, \, I, / ||
