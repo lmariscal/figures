@@ -2,14 +2,19 @@
 # Written by Leonardo Mariscal <cavariux@cleverbyte.io>, 2018
 
 import
-  figures
+  figures, os, terminal
 
 proc main =
-  echo(figures.tick & " done")
-  echo(figures.play & " play")
-  echo(figures.arrowRight & " right")
-  echo(figures.arrowLeft & " left")
-  echo(figures.arrowDown & " down")
-  echo(figures.arrowUp & " up")
-
+  var
+    i = 0
+    n = 0
+  while n < 100:
+    sleep(50)
+    stdout.eraseLine()
+    stdout.write(figures.spinner[i] & " installing something")
+    stdout.flushFile()
+    i.inc; n.inc
+    if i > high(figures.spinner): i = 0
+  stdout.eraseLine()
+  echo(figures.tick & " installing something")
 main()

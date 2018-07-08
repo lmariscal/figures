@@ -59,6 +59,7 @@ when not defined(windows):
     fiveSixths* = "⅚"
     fiveEighths* = "⅝"
     sevenEighths* = "⅞"
+    spinner* = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
 else:
   const
     tick* = "√"
@@ -117,3 +118,4 @@ else:
     fiveSixths* = "5/6"
     fiveEighths* = "5/8"
     sevenEighths* = "7/8"
+    spinner* = ["-", "\\", "|", "/"]
