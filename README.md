@@ -17,6 +17,10 @@ $ nimble install figures
 
 See the [source](src/figures.nim) for supported symbols.
 
+To use unicode in windows you must change the codepage. By default it sets up
+chcp on startup, to disable this functionaly and manually set it up define
+```nochcp```.
+
 ```nim
 import figures
 

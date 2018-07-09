@@ -61,6 +61,7 @@ when not defined(windows):
     sevenEighths* = "⅞"
     spinner* = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
 else:
+  import os
   const
     tick* = "√"
     cross* = "×"
@@ -119,3 +120,6 @@ else:
     fiveEighths* = "5/8"
     sevenEighths* = "7/8"
     spinner* = ["-", "\\", "|", "/"]
+
+  when not defined(nochcp):
+    discard execShellCmd("@chcp 65001 > nul")
