@@ -12,7 +12,7 @@ All checks are runned at compile time, if you need a run time solution please
 let me know and will consider adding support for it.
 
 The new windows terminal and integrated VsCode terminal fully support Unicode
-symbol.
+symbols.
 
 Based from npm [figures](https://github.com/sindresorhus/figures) by
 sindresorhus.
@@ -62,7 +62,7 @@ echo(figures.tick & " done")
 | dot                | ․                            | .            |
 | line               | ─                            | ─            |
 | ellipsis           | …                            | ...          |
-| pointer            | ❯                            | >            |
+| point              | ❯                            | >            |
 | pointerSmall       | ›                            | »            |
 | info               | ℹ                            | i            |
 | warning            | ⚠                            | ‼            |
@@ -71,7 +71,7 @@ echo(figures.tick & " done")
 | mustache           | ෴                            | ┌─┐          |
 | heart              | ♥                            | ♥            |
 | arrowUp            | ↑                            | ↑            |
-| [[arrowDown]]      | ↓                            | ↓            |
+| arrowDown          | ↓                            | ↓            |
 | arrowLeft          | ←                            | ←            |
 | arrowRight         | →                            | →            |
 | radioOn            | ◉                            | (*)          |
