@@ -21,7 +21,6 @@ when not defined(windows) or defined(forceFigures):
     circleCircle* = "ⓞ"
     circleCross* = "ⓧ"
     circlePipe* = "Ⓘ"
-    circleQuestionMark* = "?⃝"
     bullet* = "●"
     dot* = "․"
     line* = "─"
@@ -64,10 +63,13 @@ when not defined(windows) or defined(forceFigures):
     sevenEighths* = "⅞"
     spinner* = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
 
-  when not defined(linux):
+  # It doesn't look so good in linux/windows
+  when not defined(linux) and not defined(windows):
     const questionMarkPrefix* = "?⃝"
+    const circleQuestionMark* = "?⃝"
   else:
     const questionMarkPrefix* = "?"
+    const circleQuestionMark* = "(?)"
 else:
   const
     tick* = "√"
