@@ -5,7 +5,15 @@
 ## `from figures import nil`
 
 # Since the new microsoft terminal is on the horizon forceFigures exists.
-when not defined(windows) or defined(forceFigures):
+
+when defined(windows):
+  from os import getEnv, execShellCmd
+
+  proc isNewWindowsTerminal(): bool =
+    # Hopefully https://github.com/microsoft/terminal/issues/1040 comes to be.
+    not (getEnv("WT_SESSION") == "")
+
+when not defined(windows) or defined(forceFigures) or isNewWindowsTerminal():
   const
     tick* = "✔"
     cross* = "✖"
@@ -132,5 +140,4 @@ else:
 
   # This hack is used to display UTF-8 in the Windows command prompt.
   when not defined(nochcp):
-    import os
     discard execShellCmd("@chcp 65001 > nul")

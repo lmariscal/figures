@@ -8,8 +8,12 @@
 
 Windows CMD only supports a [limited character set](http://en.wikipedia.org/wiki/Code_page_437).
 
+All checks are runned at compile time, if you need a run time solution please
+let me know and will consider adding support for it.
+
 The new windows terminal fully supports the unicode symbols, unfortunately there
 is no proper way to indetify it yet.
+
 You can force unicode symbols by defining ```forceFigures```
 
 Based from npm [figures](https://github.com/sindresorhus/figures) by
