@@ -2,10 +2,18 @@
 
 > Unicode symbols with Windows CMD fallbacks
 
+[![](https://user-images.githubusercontent.com/7671915/59971957-5e60d180-954b-11e9-8e72-0038bd39126c.png)](#figures-1)
+
+[*and more...*](#figures-1)
 
 Windows CMD only supports a [limited character set](http://en.wikipedia.org/wiki/Code_page_437).
 
-### Totally based from npm [figures](https://github.com/sindresorhus/figures) by sindresorhus
+The new windows terminal fully supports the unicode symbols, unfortunately there
+is no proper way to indetify it yet.
+You can force unicode symbols by defining ```forceFigures```
+
+Based from npm [figures](https://github.com/sindresorhus/figures) by
+sindresorhus.
 
 ## Install
 
@@ -25,8 +33,8 @@ chcp on startup, to disable this functionaly and manually set it up define
 import figures
 
 echo(figures.tick & " done")
-// On real OSes:  ✔︎ done
-// On Windows:    √ done
+// Other OSes: ✔︎ done
+// On Windows: √ done
 ```
 
 ## Figures

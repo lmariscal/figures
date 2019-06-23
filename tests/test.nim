@@ -1,23 +1,18 @@
-# Copyright (C) CavariuX. License on the root folder.
-# Written by Leonardo Mariscal <cavariux@cleverbyte.io>, 2018
+# Written by Leonardo Mariscal <leo@ldmd.mx>, 2019
 
-import
-  figures, os, terminal
+import os, terminal
+from figures import nil
 
-proc main =
-  var
-    i = 0
-    n = 0
-  while n < 10:
-    sleep(50)
-    stdout.eraseLine()
-    stdout.write(figures.spinner[i] & " installing something")
-    stdout.flushFile()
-    i.inc; n.inc
-    if i > high(figures.spinner): i = 0
+var
+  i = 0
+while i < 30:
   stdout.eraseLine()
-  echo(figures.tick & " installing something")
-main()
+  stdout.write(figures.spinner[i mod figures.spinner.len] & " installing something")
+  stdout.flushFile()
+  i.inc
+  sleep(100)
+stdout.eraseLine()
+echo(figures.tick & " installing something")
 
 echo "tick " & figures.tick
 echo "cross " & figures.cross
@@ -75,4 +70,3 @@ echo "fourFifths " & figures.fourFifths
 echo "fiveSixths " & figures.fiveSixths
 echo "fiveEighths " & figures.fiveEighths
 echo "sevenEighths " & figures.sevenEighths
-echo "test \u221A"

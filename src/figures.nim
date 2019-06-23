@@ -1,7 +1,11 @@
-# Copyright (C) CavariuX. License on the root folder.
-# Written by Leonardo Mariscal <cavariux@cleverbyte.io>, 2018
+# Written by Leonardo Mariscal <leo@ldmd.mx>, 2019
 
-when not defined(windows):
+## HACK: To avoid namespace pollution you should consider importing as:
+##
+## `from figures import nil`
+
+# Since the new microsoft terminal is on the horizon forceFigures exists.
+when not defined(windows) or defined(forceFigures):
   const
     tick* = "✔"
     cross* = "✖"
@@ -40,7 +44,6 @@ when not defined(windows):
     checkboxOff* = "☐"
     checkboxCircleOn* = "ⓧ"
     checkboxCircleOff* = "Ⓘ"
-    questionMarkPrefix* = "?⃝"
     oneHalf* = "½"
     oneThird* = "⅓"
     oneQuarter* = "¼"
@@ -60,8 +63,12 @@ when not defined(windows):
     fiveEighths* = "⅝"
     sevenEighths* = "⅞"
     spinner* = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
+
+  when not defined(linux):
+    const questionMarkPrefix* = "?⃝"
+  else:
+    const questionMarkPrefix* = "?"
 else:
-  import os
   const
     tick* = "√"
     cross* = "×"
@@ -121,5 +128,7 @@ else:
     sevenEighths* = "7/8"
     spinner* = ["-", "\\", "|", "/"]
 
+  # This hack is used to display UTF-8 in the Windows command prompt.
   when not defined(nochcp):
+    import os
     discard execShellCmd("@chcp 65001 > nul")
