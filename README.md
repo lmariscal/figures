@@ -11,11 +11,8 @@ Windows CMD only supports a [limited character set](http://en.wikipedia.org/wiki
 All checks are runned at compile time, if you need a run time solution please
 let me know and will consider adding support for it.
 
-The new windows terminal fully supports Unicode symbols, unfortunately there
-is no proper way to indetify it yet. A work around is currently detecting the
-terminal type but it is not documented as such in the official terminal repo.
-
-You can force unicode symbols by defining ```forceFigures```
+The new windows terminal and integrated VsCode terminal fully support Unicode
+symbol.
 
 Based from npm [figures](https://github.com/sindresorhus/figures) by
 sindresorhus.

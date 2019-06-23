@@ -4,16 +4,20 @@
 ##
 ## `from figures import nil`
 
-# Since the new microsoft terminal is on the horizon forceFigures exists.
-
 when defined(windows):
   from os import getEnv, execShellCmd
 
-  proc isNewWindowsTerminal(): bool =
-    # Hopefully https://github.com/microsoft/terminal/issues/1040 comes to be.
-    not (getEnv("WT_SESSION") == "")
+  # This hack is used to display UTF-8 in the Windows command prompt.
+  when not defined(nochcp):
+    discard execShellCmd("@chcp 65001 > nul")
 
-when not defined(windows) or defined(forceFigures) or isNewWindowsTerminal():
+  proc terminalSupportUnicode(): bool =
+    # Hopefully https://github.com/microsoft/terminal/issues/1040 comes to be.
+    getEnv("WT_SESSION") != "" or getEnv("TERM_PROGRAM") == "vscode"
+else:
+  proc terminalSupportUnicode(): bool = true
+
+when terminalSupportUnicode():
   const
     tick* = "✔"
     cross* = "✖"
@@ -33,7 +37,7 @@ when not defined(windows) or defined(forceFigures) or isNewWindowsTerminal():
     dot* = "․"
     line* = "─"
     ellipsis* = "…"
-    pointer* = "❯"
+    point* = "❯"
     pointerSmall* = "›"
     info* = "ℹ"
     warning* = "⚠"
@@ -72,12 +76,15 @@ when not defined(windows) or defined(forceFigures) or isNewWindowsTerminal():
     spinner* = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
 
   # It doesn't look so good in linux/windows
-  when not defined(linux) and not defined(windows):
-    const questionMarkPrefix* = "?⃝"
-    const circleQuestionMark* = "?⃝"
-  else:
+  when defined(linux) or defined(windows):
     const questionMarkPrefix* = "?"
+  else:
+    const questionMarkPrefix* = "?⃝"
+
+  when defined(windows):
     const circleQuestionMark* = "(?)"
+  else:
+    const circleQuestionMark* = "?⃝"
 else:
   const
     tick* = "√"
@@ -99,7 +106,7 @@ else:
     dot* = "."
     line* = "─"
     ellipsis* = "..."
-    pointer* = ">"
+    point* = ">"
     pointerSmall* = "»"
     info* = "i"
     warning* = "‼"
@@ -137,7 +144,3 @@ else:
     fiveEighths* = "5/8"
     sevenEighths* = "7/8"
     spinner* = ["-", "\\", "|", "/"]
-
-  # This hack is used to display UTF-8 in the Windows command prompt.
-  when not defined(nochcp):
-    discard execShellCmd("@chcp 65001 > nul")

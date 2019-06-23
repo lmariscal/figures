@@ -33,7 +33,7 @@ echo "bullet " & figures.bullet
 echo "dot " & figures.dot
 echo "line " & figures.line
 echo "ellipsis " & figures.ellipsis
-echo "pointer " & figures.pointer
+echo "point " & figures.point
 echo "pointerSmall " & figures.pointerSmall
 echo "info " & figures.info
 echo "warning " & figures.warning
