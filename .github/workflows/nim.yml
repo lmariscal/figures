@@ -1,0 +1,16 @@
+name: Nim CI
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    container:
+      image: nimlang/nim
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run
+      run: |
+        export PATH=~/.nimble/bin:$PATH
+        nimble test
