@@ -8,7 +8,7 @@
 
 Windows CMD only supports a [limited character set](http://en.wikipedia.org/wiki/Code_page_437).
 
-All checks are runned at compile time, if you need a run time solution please
+All checks run at compile time, if you need a run time solution please
 let me know and will consider adding support for it.
 
 The new windows terminal and integrated VsCode terminal fully support Unicode
@@ -28,11 +28,11 @@ $ nimble install figures
 See the [source](src/figures.nim) for supported symbols.
 
 To use unicode in windows you must change the codepage. By default it sets up
-chcp on startup, to disable this functionaly and manually set it up define
+chcp on startup, to disable this functionality and manually set it up define
 ```nochcp```.
 
 ```nim
-import figures
+from figures import nil
 
 echo(figures.tick & " done")
 // Other OSes: ✔︎ done

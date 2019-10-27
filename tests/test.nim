@@ -41,6 +41,7 @@ echo "hamburger " & figures.hamburger
 echo "smiley " & figures.smiley
 echo "mustache " & figures.mustache
 echo "heart " & figures.heart
+echo "nodejs " & figures.nodejs
 echo "arrowUp " & figures.arrowUp
 echo "arrowDown " & figures.arrowDown
 echo "arrowLeft " & figures.arrowLeft
